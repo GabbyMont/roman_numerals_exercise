@@ -1,5 +1,5 @@
 def roman_numerals(n)
-roman_array = {
+roman_hash = {
 	1000 => "M",  
     900 => "CM",  
     500 => "D",  
@@ -14,11 +14,23 @@ roman_array = {
     4 => "IV", 
 	1 => "I"
 }
+	if n.class == Fixnum
+		roman = ""
+		roman_hash.each do |value,letter|
+			roman << letter*(n/value)
+			n = n % value
+		end
+			roman
+	else
 
 	roman = ""
-	roman_array.each do |value,letter|
-		roman << letter*(n/value)
-		n = n % value
+	new_array = []
+	roman_convert = 0
+	array = n.split(//)
+		array.each do |item|
+			roman_convert += roman_hash.key(item)
+		p "#{roman_convert}"
+		end
 	end
-	roman
+return roman_convert
 end
