@@ -1,9 +1,13 @@
 def divide(x,y)
-	x/y
+	x / y
 end
 
-def mult(a,b)
-	a*b
+def mult(x,y)
+	x * y
+end
+
+def num_converter_update(num_to_convert,key)
+	num_to_convert % key
 end
 
 def roman_numerals(num_to_convert)
@@ -25,16 +29,11 @@ roman_hash = {
 	if num_to_convert.class == Fixnum
 		roman = ""
 		roman_hash.each do |key,letter| 
-		# p " this is letter #{letter}"
-		# p "this is key #{key}"
-		# p " this is the number converted #{num_to_convert}"
 		return_of_div = divide(num_to_convert,key)
-		# p "Div return #{return_of_div}"
 		mult_str = mult(letter,return_of_div)
 		roman << mult_str
-			# roman << letter*(num_to_convert/key)
-			num_to_convert = num_to_convert % key
-		# p " Roman #{roman}"
+		num_to_convert = num_converter_update(num_to_convert,key)
+		# roman << letter*(num_to_convert/key) ^^^^ broken down
 		end
 			roman
 	else
