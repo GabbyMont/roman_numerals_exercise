@@ -50,7 +50,7 @@ class Roman_Numerals_test < Minitest::Test
 		assert_equal(2,roman_numerals("II"))
 	end
 
-	# def test_XXXIII_is_33
-	# 	assert_equal("XXXIII",roman_numerals(33))
-	# end
+	def test_XXXIII_is_33
+		assert_equal("XXXIII",roman_numerals(33))
+	end
 end
